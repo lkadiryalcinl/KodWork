@@ -1,29 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import { FlatList,View,Text,TouchableOpacity} from 'react-native'
 import JobCard from '../../components/JobCard';
-import useFetch from '../../hooks/useFetch';
 import Icon from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import styles from './Home.style'
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
+import useFetchDetail from '../../hooks/useFetchDetail';
 
 export default({navigation}) => {
-    const [counter,setCounter] = useState(0)   
-    const {data,loading,error} = useFetch("https://www.themuse.com/api/public/jobs?page=",counter)
-
-    const movePage=() => {
-        return(
-            <View style={styles.home_container}>
-            <TouchableOpacity style={styles.container} onPress={() => {
-                setCounter(counter - 1)
-            }} disabled={counter<=0}><Icon name="arrow-left-bold" size={20} color="black"/></TouchableOpacity>
-            <Text style={{fontWeight:'bold',fontSize:30,color:'white'}}>{counter}</Text>
-            <TouchableOpacity style={styles.container} onPress={()=>{
-                setCounter(counter + 1)
-            }} disabled={counter>=100}><Icon name="arrow-right-bold" size={20} color="black"/></TouchableOpacity>
-            </View>
-        )
-    }
+    const {data,loading,error} = useFetchDetail("https://www.themuse.com/api/public/jobs?page=0")
+    
     const onClick = (id) => {
         navigation.navigate('Detail',{id})
     }
@@ -38,12 +24,7 @@ export default({navigation}) => {
             data={data.results} 
             renderItem={renderItem} 
             keyExtractor={item => item.id.toString()}
-            ListHeaderComponent={
-                movePage
-            }
-            ListFooterComponent={
-                movePage
-            }/>
+            />
         </View>
         );
 

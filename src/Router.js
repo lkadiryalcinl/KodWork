@@ -42,8 +42,9 @@ function FavouriteJobs() {
 
 export default() => {
     const[favoriteJobsId,setFavoriteJobsId] = React.useState([]);
+    const[lastData,setLastData] = React.useState([]);
     return(
-        <Context.Provider value={{favoriteJobsId,setFavoriteJobsId}}>
+        <Context.Provider value={{favoriteJobsId,setFavoriteJobsId,lastData,setLastData}}>
         <NavigationContainer>
             <Drawer.Navigator>
                 <Drawer.Screen

@@ -3,7 +3,7 @@ import { TouchableOpacity,View,Text } from 'react-native'
 import styles from './Button.style'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-export default({title,onClick,isNeedIcon,iconName}) => {
+export default({title,onClick,iconName}) => {
     return(
         <View style={styles.container}>
             <TouchableOpacity style={styles.btn} onPress={onClick}>

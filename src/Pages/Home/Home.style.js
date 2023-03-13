@@ -1,8 +1,8 @@
 import { StyleSheet,Dimensions } from 'react-native'
 export default StyleSheet.create({
     container: {
-        height:30,
-        width:30,
+        height:40,
+        width:40,
         backgroundColor:'white',
         borderRadius:100,
         justifyContent:'center',
@@ -13,6 +13,12 @@ export default StyleSheet.create({
         alignItems:'center',
         flexDirection:'row',
         alignSelf:'center',
-        width:Dimensions.get('screen').width/3
+        width:Dimensions.get('screen').width/3,
+        margin:10
     },
+    font: {
+        fontWeight:'bold',
+        fontSize: 25,
+        color: 'white',
+    }
 })

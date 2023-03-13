@@ -6,7 +6,7 @@ import { Context } from '../../Context/Context';
 export default() => {
   const {lastData} = useContext(Context);
 
-  const renderItem = ({item}) => <FavouriteJobCard Job={item} onClick={()=>{}} onChange={()=>{}}/>
+  const renderItem = ({item}) => <FavouriteJobCard Job={item} onClick={()=>{}}/>
   return(
     (lastData.length > 0? 
       <FlatList

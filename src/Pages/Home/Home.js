@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useRef,useState } from 'react'
 import { FlatList, View, Text, TouchableOpacity } from 'react-native'
 import JobCard from '../../components/JobCard';
 import Icon from 'react-native-vector-icons/dist/MaterialCommunityIcons';
@@ -9,7 +9,8 @@ import useFetch from '../../hooks/useFetch';
 
 export default ({ navigation }) => {
     const [pageNumber, setPageNumber] = useState(0);
-    const { data, loading, error } = useFetch("https://www.themuse.com/api/public/jobs?page=", pageNumber)
+    const flatListRef = useRef()
+    const { data, loading, error } = useFetch("https://www.themuse.com/api/public/jobs?page=", pageNumber,flatListRef)
 
     const onClick = (id) => {
         navigation.navigate('Detail', { id })
@@ -27,9 +28,9 @@ export default ({ navigation }) => {
                 <Text style={styles.font}>{pageNumber}</Text>
 
                 <TouchableOpacity style={styles.container} onPress={() => {
-                    if (pageNumber < 5) setPageNumber(pageNumber + 1)
+                    if (pageNumber < 99) setPageNumber(pageNumber + 1)
                 }}
-                    disabled={pageNumber === 4}
+                    disabled={pageNumber === 99}
                 ><Icon name='arrow-right-bold' size={25} color='black' /></TouchableOpacity>
             </View>
         )
@@ -43,6 +44,7 @@ export default ({ navigation }) => {
     return (
         <View style={{ backgroundColor: '#c31432' }}>
             <FlatList
+                ref={flatListRef}
                 data={data.results}
                 renderItem={renderItem}
                 keyExtractor={item => item.id.toString()}

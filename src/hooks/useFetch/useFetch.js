@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState} from "react";
 
-export default(url,pageNumber) => {
+export default(url,pageNumber,flatListRef) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [data, setData] = useState([]);
@@ -18,8 +18,14 @@ export default(url,pageNumber) => {
         }
     }
 
+    const toTop = () => {
+        flatListRef.current?.scrollToOffset({ animated: true, x:0, y:0 })
+    }
+
+
     useEffect(() => {
         fetchData();
+        toTop();
     }, [pageNumber])
 
     return { data,loading,error}

@@ -42,10 +42,6 @@ Yazılım ile ilgili işleri toplayıp bir arada sunan React Native ile hazırla
 
 A job search application developed with React Native that collects and presents software-related jobs.
 
-## Application Introduction Video
-
-https://user-images.githubusercontent.com/77771717/234236296-6cb711fd-82d8-4c90-8554-21bdf1c3e373.mp4
-
 # Application Features
 
 * When the user enters the application, it displays software-related jobs using cards from an API.

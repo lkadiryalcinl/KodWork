@@ -25,6 +25,7 @@ Yazılım ile ilgili işleri toplayıp bir arada sunan React Native ile hazırla
 * react-native-dotenv
 * react-native-vector-icons
 * react-native-render-html
+* react-native-context-api
 
 ## Yükleme Adımları
 
@@ -56,6 +57,7 @@ A job search application developed with React Native that collects and presents 
 * react-native-dotenv
 * react-native-vector-icons
 * react-native-render-html
+* react-native-context-api
 
 # Installation Steps
 
